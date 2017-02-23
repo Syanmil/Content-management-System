@@ -6,9 +6,9 @@ const hash = require('password-hash')
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
 
-// var users = require('./routes/twitsRoutes');
-// var date = require('./routes/usersRoutes');
-// var dataDate = require('./routes/usersRoutes');
+var users = require('./routes/usersRoutes');
+var data = require('./routes/dataRoutes');
+var dataDate = require('./routes/dataDateRoutes');
 
 var app = express()
 
@@ -25,7 +25,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors())
 
-// app.use('/api/twits', twits);
-// app.use('/api/users', users);
+app.use('/api/data', data);
+app.use('/api/dataDate', dataDate);
+app.use('/api/users', users);
 
 app.listen(process.env.PORT)
