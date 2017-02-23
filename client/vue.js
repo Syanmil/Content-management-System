@@ -6,6 +6,8 @@ var app = new Vue({
     page: "home",
     username: '',
     password: '',
+    editLetter: '',
+    editFrequency: '',
     letter: '',
     frequency: '',
     datas: [],
@@ -83,11 +85,28 @@ var app = new Vue({
         app.datas.push(data.data)
       })
     },
-    editData: function(id){
-
+    modalEditData: function(id, letter, frequency){
+      $('.ui.basic.modal')
+      .modal('setting', {
+        onApprove: function(){
+          app.dataUpdated(id)
+        }
+      })
+      .modal('show')
+      app.editLetter = letter
+      app.editFrequency = frequency
     },
     deleteData: function(id){
       axios.delete(`http://localhost:3000/api/data/${id}`)
+      .then(function(){
+        app.gotodata()
+      })
+    },
+    dataUpdated: function(id){
+      axios.put(`http://localhost:3000/api/data/${id}`, {
+        letter : app.editLetter,
+        frequency: app.editFrequency
+      })
       .then(function(){
         app.gotodata()
       })

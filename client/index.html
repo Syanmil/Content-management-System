@@ -152,7 +152,7 @@
                 <td>{{data.letter}}</td>
                 <td>{{data.frequency}}</td>
                 <td>
-                  <button class="ui button positive" v-on:click="editData(data._id)">Update</button>
+                  <button class="ui button positive" v-on:click="modalEditData(data._id, data.letter, data.frequency)">Update</button>
                   <button class="ui button negative" v-on:click="deleteData(data._id)">Delete</button>
                 </td>
               </tr>
@@ -167,6 +167,33 @@
             <input name="first-name" placeholder="Add new Data Date" type="text">
           </div>
           <button class="ui button">Add Data Date</button>
+        </div>
+      </div>
+      <div class="ui basic modal">
+        <div class="ui icon header">
+          Update Item
+        </div>
+        <div class="content">
+          <div class="ui form">
+            <div class="fields inline">
+              <label class="ui inverted">Letter</label>
+              <input placeholder="Letter" v-model="editLetter">
+            </div>
+            <div class="fields inline">
+              <label class="ui inverted">Frequency</label>
+              <input placeholder="Frequency" v-model="editFrequency">
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <div class="ui red basic cancel inverted button">
+            <i class="remove icon"></i>
+            No
+          </div>
+          <div class="ui green ok approve inverted button">
+            <i class="checkmark icon"></i>
+            Yes
+          </div>
         </div>
       </div>
     </div>
