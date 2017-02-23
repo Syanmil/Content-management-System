@@ -8,6 +8,8 @@ var app = new Vue({
     password: '',
     editLetter: '',
     editFrequency: '',
+    searchLetterData: '',
+    searchFrequencyData: '',
     letter: '',
     frequency: '',
     datas: [],
@@ -109,6 +111,14 @@ var app = new Vue({
       })
       .then(function(){
         app.gotodata()
+      })
+    },
+    searchData: function(){
+      console.log(app.searchLetterData);
+      console.log(app.searchFrequencyData);
+      axios.get(`http://localhost:3000/api/data/search`)
+      .then(function(response){
+        app.datas = response.data
       })
     }
   }

@@ -134,9 +134,9 @@
               <hr>
             <div class="field inline">
               <label>Letter</label>
-              <input type="text" placeholder="Letter">
+              <input type="text" placeholder="Letter" v-model="searchLetterData" v-on:keyup="searchData()">
               <label>Frequency</label>
-              <input type="text" placeholder="Frequency">
+              <input type="text" placeholder="Frequency" v-model="searchFrequencyData" v-on:keyup="searchData()">
             </div>
           </div>
           <table class="ui striped table">
@@ -169,7 +169,7 @@
           <button class="ui button">Add Data Date</button>
         </div>
       </div>
-      <div class="ui basic modal">
+      <div id="modalData" class="ui basic modal">
         <div class="ui icon header">
           Update Item
         </div>
