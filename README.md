@@ -13,7 +13,7 @@ Content Management System (SPA)
 #### Data
 | Routes           | HTTP   | Description      |
 |------------------|--------|------------------|
-| /api/data        | GET    | GET all users    |
+| /api/data        | GET    | GET all data    |
 | /api/data        | POST   | create new data  |
 | /api/data/:id    | PUT    | edit data        |
 | /api/data/:id    | DELETE | delete data      |
@@ -23,7 +23,7 @@ Content Management System (SPA)
 #### Data Date
 | Routes               | HTTP   | Description          |
 |----------------------|--------|----------------------|
-| /api/dataDate        | GET    | GET all users        |
+| /api/dataDate        | GET    | GET all dataDate        |
 | /api/dataDate        | POST   | create new dataDate  |
 | /api/dataDate/:id    | PUT    | edit dataDate        |
 | /api/dataDate/:id    | DELETE | delete dataDate      |
@@ -32,9 +32,9 @@ Content Management System (SPA)
 
 ### Schema
 data -->
-  letter: String
-  frequency: Number
+  -letter: String
+  -frequency: Number
 
 dataDate -->
-  data: String
-  point: Number
+  -date: String
+  -point: Number

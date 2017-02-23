@@ -1,0 +1,22 @@
+{
+  "name": "content-management-system",
+  "version": "1.0.0",
+  "description": "live code to for level-up",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Syanmil/Content-management-System.git"
+  },
+  "keywords": [
+    "CMS"
+  ],
+  "author": "Syanmil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Syanmil/Content-management-System/issues"
+  },
+  "homepage": "https://github.com/Syanmil/Content-management-System#readme"
+}
