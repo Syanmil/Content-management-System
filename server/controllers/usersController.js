@@ -61,6 +61,12 @@ module.exports = {
         });
     },
     register: function (req, res) {
+        if (!req.body.username || !req.body.password){
+            return res.status(500).json({
+                message: 'Username and Password Required',
+                error: err
+            });
+        }
         var users = new usersModel({			username : req.body.username,			password : hash.generate(req.body.password)
         });
 
