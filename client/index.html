@@ -20,13 +20,13 @@
             <i class="cubes icon"></i>
             My CMS
           </a>
-          <a href="#" class="item" v-if="page=='home'">
+          <a href="#" class="item" v-if="authenticated" v-on:click="gotohome()">
             Home
           </a>
-          <a href="#" class="item" v-if="page=='home'">
+          <a href="#" class="item" v-if="authenticated" v-on:click="gotodata()">
             Data
           </a>
-          <a href="#" class="item" v-if="page=='home'">
+          <a href="#" class="item" v-if="authenticated" v-on:click="gotodatadate()">
             Data Date
           </a>
           <div class="right menu">
@@ -108,7 +108,13 @@
         </div>
       </div>
       <div v-if="page=='home'">
-        <h1>{{message}}</h1>
+        <div class="ui inverted vertical blue masthead center aligned segment">
+          <div class="ui text container">
+            <h1 class="ui inverted header">
+              Welcome To Admin Page, {{message}}
+            </h1>
+          </div>
+        </div>
       </div>
     </div>
   <script src="vue.js"></script>

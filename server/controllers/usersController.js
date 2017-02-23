@@ -22,7 +22,8 @@ module.exports = {
                 if (hash.verify(password, user.password)){
                     let token = jwt.sign({username: user.username}, process.env.SECRET)
                     res.json({
-                        token: token
+                        token: token,
+                        username: username
                     })
                 } else {
                     return res.status(404).json({
