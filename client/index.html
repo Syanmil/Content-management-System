@@ -116,6 +116,42 @@
           </div>
         </div>
       </div>
+      <div v-if="page=='data'">
+        <div class="ui grid container">
+          <div class="ui form ">
+            <div class="field ui five wide column">
+              <label>Add new Data</label>
+              <input name="first-name" placeholder="Add new Data" type="text">
+            </div>
+            <button class="ui button">Add Data</button>
+          </div>
+        </div>
+        <div class="ui form">
+          <div class="field inline ten wide column">
+            <label>Letter</label>
+            <input type="text" placeholder="Letter">
+            <label>Frequency</label>
+            <input type="text" placeholder="Frequency">
+          </div>
+        </div>
+        <table class="ui striped table">
+          <thead>
+            <th>#</th>
+            <th>Letter</th>
+            <th>Frequency</th>
+            <th>Action</th>
+          </thead>
+        </table>
+      </div>
+      <div v-if="page=='dataDate'">
+        <div class="ui form">
+          <div class="field ui five wide column">
+            <label>Add new Data Date</label>
+            <input name="first-name" placeholder="Add new Data Date" type="text">
+          </div>
+          <button class="ui button">Add Data Date</button>
+        </div>
+      </div>
     </div>
   <script src="vue.js"></script>
   <script src="index.js"></script>
