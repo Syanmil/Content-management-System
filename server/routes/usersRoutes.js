@@ -4,7 +4,8 @@ var usersController = require('../controllers/usersController.js');
 
 router.get('/', usersController.list);
 router.get('/:id', usersController.show);
-router.post('/', usersController.create);
+router.post('/register', usersController.register);
+router.post('/login', usersController.login);
 router.put('/:id', usersController.update);
 router.delete('/:id', usersController.remove);
 

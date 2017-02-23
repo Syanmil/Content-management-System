@@ -53,16 +53,16 @@
                 <div class="field">
                   <div class="ui left icon input">
                     <i class="user icon"></i>
-                    <input type="text" name="username" placeholder="Username">
+                    <input type="text" name="username" placeholder="Username" v-model='username'>
                   </div>
                 </div>
                 <div class="field">
                   <div class="ui left icon input">
                     <i class="lock icon"></i>
-                    <input type="password" name="password" placeholder="Password">
+                    <input type="password" name="password" placeholder="Password" v-model='password'>
                   </div>
                 </div>
-                <div class="ui fluid large teal button" v-on:click="signin">Login</div>
+                <div class="ui fluid large teal button" v-on:click="signin()">Login</div>
               </div>
               <div class="ui error message"></div>
             </div>
@@ -97,6 +97,9 @@
             </div>
           </div>
         </div>
+      </div>
+      <div v-if="page=='home'">
+        <h1>{{message}}</h1>
       </div>
     </div>
   <script src="vue.js"></script>

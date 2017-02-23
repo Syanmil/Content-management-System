@@ -1,6 +1,10 @@
 var usersModel = require('../models/usersModel.js');
+const hash = require('password-hash')
 
 module.exports = {
+    login: function(req, res){
+        res.send('ok')
+    },
     list: function (req, res) {
         usersModel.find(function (err, userss) {
             if (err) {
@@ -29,8 +33,8 @@ module.exports = {
             return res.json(users);
         });
     },
-    create: function (req, res) {
-        var users = new usersModel({			username : req.body.username,			password : req.body.password
+    register: function (req, res) {
+        var users = new usersModel({			username : req.body.username,			password : hash.generate(req.body.password)
         });
 
         users.save(function (err, users) {
