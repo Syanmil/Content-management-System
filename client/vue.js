@@ -3,7 +3,7 @@ var app = new Vue({
   data: {
     message: '',
     authenticated: false,
-    page: "home",
+    page: "landing",
     username: '',
     password: '',
     editLetter: '',

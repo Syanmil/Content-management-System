@@ -161,12 +161,47 @@
         </div>
       </div>
       <div v-if="page=='dataDate'">
-        <div class="ui form">
-          <div class="field ui five wide column">
-            <label>Add new Data Date</label>
-            <input name="first-name" placeholder="Add new Data Date" type="text">
+        <div class="ui container">
+          <div class="ui grid container">
+            <div class="ui form">
+              <div class="field ui">
+                <label>Add new Data</label>
+                <input placeholder="letter" type="text" v-model="letter">
+                <input placeholder="frequency" type="text" v-model="frequency">
+              </div>
+              <button class="ui button" v-on:click="addDataDates()">Add Data Dates</button>
+            </div>
           </div>
-          <button class="ui button">Add Data Date</button>
+          <br><br><br>
+          <div class="ui form">
+              <h3>Search</h3>
+              <hr>
+            <div class="field inline">
+              <label>Letter</label>
+              <input type="text" placeholder="Letter" v-model="searchLetterData" v-on:keyup="searchDataDates()">
+              <label>Frequency</label>
+              <input type="text" placeholder="Frequency" v-model="searchFrequencyData" v-on:keyup="searchDataDates()">
+            </div>
+          </div>
+          <table class="ui striped table">
+            <thead>
+              <th>#</th>
+              <th>Letter</th>
+              <th>Frequency</th>
+              <th>Action</th>
+            </thead>
+            <tbody>
+              <tr v-for="data in dataDates">
+                <td>{{data.number}}</td>
+                <td>{{data.letter}}</td>
+                <td>{{data.frequency}}</td>
+                <td>
+                  <button class="ui button positive" v-on:click="modalEditDataDates(data._id, data.letter, data.frequency)">Update</button>
+                  <button class="ui button negative" v-on:click="deleteDataDates(data._id)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
       <div id="modalData" class="ui basic modal">
