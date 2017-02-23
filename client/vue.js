@@ -3,7 +3,7 @@ var app = new Vue({
   data: {
     message: 'Hello World',
     authenticated: false,
-    page: "register",
+    page: "home",
     username: '',
     password: '',
     data: [],
@@ -15,6 +15,7 @@ var app = new Vue({
     },
     logout: function(){
       sessionStorage.clear();
+      app.authenticated = false
       app.page = 'landing'
     },
     register: function(){
@@ -29,6 +30,7 @@ var app = new Vue({
         sessionStorage.setItem('token', response.data.token)
         if(response.data.token){
           app.page = 'home'
+          app.authenticated = true
         }
       })
     },

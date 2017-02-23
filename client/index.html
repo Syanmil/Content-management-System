@@ -20,6 +20,15 @@
             <i class="cubes icon"></i>
             My CMS
           </a>
+          <a href="#" class="item" v-if="page=='home'">
+            Home
+          </a>
+          <a href="#" class="item" v-if="page=='home'">
+            Data
+          </a>
+          <a href="#" class="item" v-if="page=='home'">
+            Data Date
+          </a>
           <div class="right menu">
             <div class="ui form">
               <div class="inline field">
@@ -72,7 +81,7 @@
       <div v-if="page=='register'">
         <div class="ui middle aligned center aligned grid">
           <div class="column">
-            <h2 class="ui teal header">
+            <h2 class="ui green header">
               <div class="content">
                 Register new Account
               </div>
@@ -91,7 +100,7 @@
                     <input type="password" name="password" placeholder="Password" v-model='password' required>
                   </div>
                 </div>
-                <div class="ui fluid large teal button" v-on:click="signup()">REGISTER</div>
+                <div class="ui fluid large green button" v-on:click="signup()">REGISTER</div>
               </div>
               <div class="ui error message"></div>
             </div>
