@@ -82,5 +82,22 @@ module.exports = {
             }
             return res.status(204).json();
         });
+    },
+    searching: function (req, res) {
+        var letter = req.query.letter
+        var frequency = req.query.frequency
+        if (letter && frequency){
+            dataModel.find({letter: letter, frequency: frequency}, function(err, data){
+                res.json(data)
+            })
+        } else if (letter) {
+            dataModel.find({letter: letter}, function(err, data){
+                res.json(data)
+            })
+        } else if (frequency){
+            dataModel.find({frequency: frequency}, function(err, data){
+                res.json(data)
+            })
+        }
     }
 };

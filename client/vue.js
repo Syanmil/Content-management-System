@@ -114,10 +114,9 @@ var app = new Vue({
       })
     },
     searchData: function(){
-      console.log(app.searchLetterData);
-      console.log(app.searchFrequencyData);
-      axios.get(`http://localhost:3000/api/data/search`)
+      axios.get(`http://localhost:3000/api/data/search?letter=${app.searchLetterData}&frequency=${app.searchFrequencyData}`)
       .then(function(response){
+        console.log(response.data);
         app.datas = response.data
       })
     }
