@@ -3,10 +3,16 @@ var app = new Vue({
   data: {
     message: 'Hello World',
     authenticated: false,
+    page: 'landing',
     data: [],
     dataDate: []
   },
   methods: {
+    login: function(){
 
+    },
+    logout: function(){
+      
+    }
   }
 })

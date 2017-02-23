@@ -14,8 +14,23 @@
   </head>
   <body>
     <div id="app">
-      <h1>{{message}}</h1>
+      <div class="ui inverted menu">
+        <div class="ui container">
+          <a href="#" class="header item">
+            <i class="cubes icon"></i>
+            My CMS
+          </a>
+          <div class="right menu">
+            <div class="ui form">
+              <div class="inline field">
+                <button class="ui negative button" v-if="authenticated" v-on:click="logout()">Logout</button>
+                <button class="ui positive button" v-else="authenticated" v-on:click="login()">Login</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  <script src="vue.js"></script>  
+  <script src="vue.js"></script>
   </body>
 </html>
