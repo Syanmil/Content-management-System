@@ -117,31 +117,48 @@
         </div>
       </div>
       <div v-if="page=='data'">
-        <div class="ui grid container">
-          <div class="ui form ">
-            <div class="field ui five wide column">
-              <label>Add new Data</label>
-              <input name="first-name" placeholder="Add new Data" type="text">
+        <div class="ui container">
+          <div class="ui grid container">
+            <div class="ui form">
+              <div class="field ui">
+                <label>Add new Data</label>
+                <input placeholder="letter" type="text" v-model="letter">
+                <input placeholder="frequency" type="text" v-model="frequency">
+              </div>
+              <button class="ui button" v-on:click="addData()">Add Data</button>
             </div>
-            <button class="ui button">Add Data</button>
           </div>
-        </div>
-        <div class="ui form">
-          <div class="field inline ten wide column">
-            <label>Letter</label>
-            <input type="text" placeholder="Letter">
-            <label>Frequency</label>
-            <input type="text" placeholder="Frequency">
+          <br><br><br>
+          <div class="ui form">
+              <h3>Search</h3>
+              <hr>
+            <div class="field inline">
+              <label>Letter</label>
+              <input type="text" placeholder="Letter">
+              <label>Frequency</label>
+              <input type="text" placeholder="Frequency">
+            </div>
           </div>
+          <table class="ui striped table">
+            <thead>
+              <th>#</th>
+              <th>Letter</th>
+              <th>Frequency</th>
+              <th>Action</th>
+            </thead>
+            <tbody>
+              <tr v-for="data in datas">
+                <td>{{data.number}}</td>
+                <td>{{data.letter}}</td>
+                <td>{{data.frequency}}</td>
+                <td>
+                  <button class="ui button positive" v-on:click="editData(data._id)">Update</button>
+                  <button class="ui button negative" v-on:click="deleteData(data._id)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <table class="ui striped table">
-          <thead>
-            <th>#</th>
-            <th>Letter</th>
-            <th>Frequency</th>
-            <th>Action</th>
-          </thead>
-        </table>
       </div>
       <div v-if="page=='dataDate'">
         <div class="ui form">

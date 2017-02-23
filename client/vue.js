@@ -6,8 +6,10 @@ var app = new Vue({
     page: "home",
     username: '',
     password: '',
-    data: [],
-    dataDate: []
+    letter: '',
+    frequency: '',
+    datas: [],
+    dataDates: []
   },
   methods: {
     login: function(){
@@ -42,7 +44,6 @@ var app = new Vue({
         password: app.password
       })
       .then(function(response) {
-        console.log(response);
         if(response.data.username){
           app.page = 'login'
         }
@@ -50,6 +51,14 @@ var app = new Vue({
     },
     gotodata: function(){
       app.page = 'data'
+      axios.get('http://localhost:3000/api/data')
+      .then(function(response){
+        let indexed = response.data.map(function(item, index){
+          item.number = index + 1
+          return item
+        })
+        app.datas = indexed
+      })
     },
     gotodatadate: function(){
       app.page = 'dataDate'
@@ -63,6 +72,25 @@ var app = new Vue({
         app.page = 'home'
         app.authenticated = true
       }
+    },
+    addData: function(){
+      axios.post('http://localhost:3000/api/data', {
+        letter : app.letter,
+        frequency: app.frequency
+      })
+      .then(function(data){
+        data.data.number = app.datas.length
+        app.datas.push(data.data)
+      })
+    },
+    editData: function(id){
+
+    },
+    deleteData: function(id){
+      axios.delete(`http://localhost:3000/api/data/${id}`)
+      .then(function(){
+        app.gotodata()
+      })
     }
   }
 })
