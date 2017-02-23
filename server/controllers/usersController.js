@@ -1,9 +1,36 @@
 var usersModel = require('../models/usersModel.js');
 const hash = require('password-hash')
+const jwt = require('jsonwebtoken')
 
 module.exports = {
     login: function(req, res){
-        res.send('ok')
+        let username = req.body.username
+        let password = req.body.password
+        usersModel.findOne({username: username}, function(err, user){
+            if (err){
+                return res.status(500).json({
+                    message: 'Error when getting users.',
+                    error: err
+                });
+            }
+            if (!user) {
+                return res.status(404).json({
+                    message: 'Incorrect username or password'
+                });
+            }
+            if (user) {
+                if (hash.verify(password, user.password)){
+                    let token = jwt.sign({username: user.username}, process.env.SECRET)
+                    res.json({
+                        token: token
+                    })
+                } else {
+                    return res.status(404).json({
+                        message: 'Incorrect username or password'
+                    });
+                }
+            }
+        })
     },
     list: function (req, res) {
         usersModel.find(function (err, userss) {

@@ -20,14 +20,13 @@ var app = new Vue({
       app.page = 'register'
     },
     signin: function(){
-      console.log('sign');
       axios.post('http://localhost:3000/api/users/login', {
         username: app.username,
         password: app.password
       })
-      .then(function(data){
-        sessionStorage.setItem('token', data.token)
-        if(data.token){
+      .then(function(response){
+        sessionStorage.setItem('token', response.data.token)
+        if(response.data.token){
           app.page = 'home'
         }
       })
